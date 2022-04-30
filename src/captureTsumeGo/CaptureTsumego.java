@@ -56,7 +56,7 @@ public class CaptureTsumego extends JDialog {
   private int result[];
   private int boardWidth;
   private int boardHeight;
-  private int x1 = -1, y1 = -1, x2 = -1, y2 = -1, x3 = -1, y3 = -1;
+  private int x1 = -1, y1 = -1, x2 = -1, y2 = -1;
   private int widthGap, heightGap;
   private double curWidthGap, curHeightGap;
   private int clickTimes = 0;
@@ -351,8 +351,6 @@ public class CaptureTsumego extends JDialog {
                   else if (x2 < x1 && y2 < y1) directionIndex = 4;
                   break;
                 case 2:
-                  x3 = e.getX();
-                  y3 = e.getY();
                   capture();
                   break;
               }
