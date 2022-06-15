@@ -25,7 +25,7 @@ import javax.swing.JPanel;
 
 public class CaptureTsumego extends JDialog {
   CaptureTsumego t;
-  private JPanel mainPanel;
+  //private JPanel mainPanel;
 
   public CaptureTsumego() {
     try {
@@ -72,7 +72,9 @@ public class CaptureTsumego extends JDialog {
   private BufferedImage imageOut;
   private Color backGroundColor = new Color(0, 0, 0, 25);
 
-  public void paintMianPanel(Graphics g) {
+  @Override
+  public void paint(Graphics g) {
+	((Graphics2D) g).setComposite(AlphaComposite.getInstance(AlphaComposite.SRC));
     if (imageShow != null) {
       g.drawImage(imageShow, 0, 0, this);
     }
@@ -394,15 +396,15 @@ public class CaptureTsumego extends JDialog {
     bindSelectAreaListener();
     screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
-    mainPanel =
-        new JPanel() {
-          @Override
-          public void paintComponent(Graphics g) {
-            ((Graphics2D) g).setComposite(AlphaComposite.getInstance(AlphaComposite.SRC));
-            paintMianPanel(g);
-          }
-        };
-    this.getContentPane().add(mainPanel);
+//    mainPanel =
+//        new JPanel() {
+//          @Override
+//          public void paintComponent(Graphics g) {
+//            ((Graphics2D) g).setComposite(AlphaComposite.getInstance(AlphaComposite.SRC));
+//            paintMianPanel(g);
+//          }
+//        };
+   // this.getContentPane().add(mainPanel);
     this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     this.setUndecorated(true);
     this.setBackground(backGroundColor);
